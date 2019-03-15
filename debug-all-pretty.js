@@ -1,4 +1,4 @@
-/*1552618158,,JIT Construction: v4853689,en_US*/
+/*1552680884,,JIT Construction: v4856211,en_US*/
 
 /**
  * Copyright (c) 2017-present, Facebook, Inc. All rights reserved.
@@ -93,19 +93,19 @@ try {
               return createMeta(
                 name && /^[A-Z]/.test(name) ? name : undefined,
                 params &&
-                  ((params.params && params.params.length) || params.returns)
+                ((params.params && params.params.length) || params.returns)
                   ? "function(" +
-                      (params.params
-                        ? params.params
-                            .map(function(param) {
-                              return /\?/.test(param)
-                                ? "?" + param.replace("?", "")
-                                : param;
-                            })
-                            .join(",")
-                        : "") +
-                      ")" +
-                      (params.returns ? ":" + params.returns : "")
+                    (params.params
+                      ? params.params
+                          .map(function(param) {
+                            return /\?/.test(param)
+                              ? "?" + param.replace("?", "")
+                              : param;
+                          })
+                          .join(",")
+                      : "") +
+                    ")" +
+                    (params.returns ? ":" + params.returns : "")
                   : undefined
               );
             };
@@ -3720,7 +3720,7 @@ try {
           });
           __d("JSSDKRuntimeConfig", [], {
             locale: "en_US",
-            revision: "4853689",
+            revision: "4856211",
             rtl: false,
             sdkab: null,
             sdkns: "FB",
@@ -5045,8 +5045,8 @@ try {
                 var environment = /app_runner/.test(window.name)
                   ? ENVIRONMENTS.PAGETAB
                   : /iframe_canvas/.test(window.name)
-                  ? ENVIRONMENTS.CANVAS
-                  : ENVIRONMENTS.UNKNOWN;
+                    ? ENVIRONMENTS.CANVAS
+                    : ENVIRONMENTS.UNKNOWN;
 
                 if ((environment | ENVIRONMENTS.PAGETAB) === environment) {
                   environment |= ENVIRONMENTS.CANVAS;
@@ -5286,8 +5286,8 @@ try {
                 versions.ie = agent[1]
                   ? parseFloat(agent[1])
                   : agent[4]
-                  ? parseFloat(agent[4])
-                  : NaN;
+                    ? parseFloat(agent[4])
+                    : NaN;
 
                 versions.firefox = agent[2] || "";
                 versions.webkit = agent[3] || "";
@@ -7621,8 +7621,8 @@ try {
                   _ie = agent[1]
                     ? parseFloat(agent[1])
                     : agent[5]
-                    ? parseFloat(agent[5])
-                    : NaN;
+                      ? parseFloat(agent[5])
+                      : NaN;
 
                   if (_ie && document && document.documentMode) {
                     _ie = document.documentMode;
@@ -9127,13 +9127,13 @@ try {
                   width: window.innerWidth
                     ? window.innerWidth
                     : root == null
-                    ? void 0
-                    : root.clientWidth,
+                      ? void 0
+                      : root.clientWidth,
                   height: window.innerHeight
                     ? window.innerHeight
                     : root == null
-                    ? void 0
-                    : root.clientHeight
+                      ? void 0
+                      : root.clientHeight
                 };
               }
 
@@ -16127,8 +16127,8 @@ try {
                     attr.width === "100%"
                       ? ""
                       : !attr.width
-                      ? 550
-                      : Math.max(attr.width, MIN_WIDTH);
+                        ? 550
+                        : Math.max(attr.width, MIN_WIDTH);
 
                   attr.height = 100;
                 }
@@ -17469,7 +17469,7 @@ try {
         (e.fileName || e.sourceURL || e.script) +
         '","stack":"' +
         (e.stackTrace || e.stack) +
-        '","revision":"4853689","namespace":"FB","message":"' +
+        '","revision":"4856211","namespace":"FB","message":"' +
         e.message +
         '"}}'
     );

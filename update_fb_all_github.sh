@@ -20,16 +20,16 @@ getChanges(){
 	mv debug.js debug_old.js
 
 	# download the latest facebook all.js/css
-	curl --silent -O https://connect.facebook.net/en_US/all/debug.js
-	
+	curl --silent https://connect.facebook.net/en_US/all/debug.js --output debug-all.js
+
 	# grab the versions from the old and new js files
 	local new_version=$(getVersion debug.js)
 	local old_version=$(getVersion debug_old.js)
-	
+
 	# only continue if the new file has a newer version
 	# this prevents accidental "reverse commits" that would result from hitting a stale cache
 	if [[ new_version -gt old_version ]]; then
-		
+
 		# compare the latest with the backup to see if anything changed
 		local changes=$(/usr/bin/diff --brief --ignore-matching-lines=\/\*.*\*\/  debug.js debug_old.js)
 
@@ -46,7 +46,7 @@ getChanges(){
 
 		# this is the "return" value - some text if there were changes or "" otherwise
 		echo $changes
-	
+
 	fi
 }
 
@@ -68,7 +68,7 @@ JS_CHANGES=$(getChanges)
 if [[ $JS_CHANGES ]]; then
 
     # de-minify with prettier (https://prettier.io)
-    npx prettier debug.js > debug-pretty.js
+    npx prettier debug-all.js > debug-all-pretty.js
 
 	# add it to the staging area
 	/usr/bin/git add *.js
